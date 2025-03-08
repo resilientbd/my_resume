@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  latex:
+    image: texlive/texlive
+    container_name: latex_env
+    volumes:
+      - ./:/doc
+    working_dir: /doc
+    command: >
+      bash -c "latexmk -pdf -pvc -interaction=nonstopmode -f main.tex"
